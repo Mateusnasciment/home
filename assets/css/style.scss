@@ -1,0 +1,1064 @@
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script:700|Open+Sans:300,400');
+@import url('https://fonts.googleapis.com/css?family=Lato:300,700|Taviraj');
+
+/* Table of content of CSS Page
+    1. Config and Variables
+    2. General Set-up
+    3. Header
+    4. Navbar
+    5. Self
+    6. Experiences
+    7. Skills
+    8. Projects
+    9. Custom background
+    10. Responsive and Animation
+*/
+
+
+/*--------------------- Config ----------------------*/
+
+:root {
+    --font-family: 'Open Sans', sans-serif;
+    --font-heading: 'Dancing Script', cursive;
+    --font-custom1: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+    --font-custom2: 'Lato', sans-serif;
+    --font-flipcard: 'Courier New', Courier, monospace;
+    --body-color: #333;
+    --theme-color1: #08070A;
+    --theme-color2: #FFFBFB;
+    --theme-color3: #201B17;
+    --theme-color4: #D2AE90;
+    --theme-color5: #DD7564;
+    --theme-color6: #A79687;
+    --theme-color7: #24262A;
+    --theme-color8: #133846;
+    --theme-color9: #2d2a32;
+    --theme-color10: #2d2a32;
+    --theme-color11: #343330;
+    --theme-color12: #2d2d2d;
+    --theme-color13: #121019;
+    --frontcard-color: #e4ff1a;
+    --backcard-color: #033860;
+    --border-color: #AEDFF2;
+    --b: 5px;   /* thickness of the border */
+    --c:var(--theme-color2);   /* color of the border */
+    --w: 20px;  /* width of border */
+    --g:#0000 90deg,var(--c) 0;
+}
+
+
+
+/*-------------------- General set-up -------------------*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none !important; 
+    list-style: none;
+    /* justify-content: center; */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5, h6, .logo {
+    // font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: var(--font-heading);
+}
+
+div, a, .logo {
+    text-decoration: none;
+}
+
+div div span {
+    font-size: 50px;
+}
+
+.section-padding {
+    padding: 100px 0px;
+    z-index: 9 !important;
+}
+
+.section-head {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.full-width {
+    width: 100% !important;
+}
+
+body {
+    color: var(--body-color);
+    line-height: 1.3;
+    font-weight: 400;
+    font-family: var(--font-family);
+    overflow-x: hidden !important; /* if the content in the nav box is too large consider adding a scroll bar */
+    height: 100%;
+    width: 100%;
+}
+
+footer {
+    font-family: var(--font-heading);
+}
+
+
+/*-------------------- Header Format -------------------*/
+
+hr {
+    position: relative;
+}
+
+.header {
+    min-height: 100vh;
+    background: linear-gradient(-45deg, var(--theme-color5), var(--theme-color1), var(--theme-color8), #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 12s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.header .caption {
+    margin-top: 50px;
+}
+
+.header .caption h2 {
+    font-weight: 500;
+}
+
+.header .caption h1 {
+    margin: 10px 0;
+    font-size: 90px;
+}
+
+.flip-card-container {
+    position: relative;
+    width: 120px;
+    height: 40px;
+}
+
+.flip-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 250ms ease-in-out;
+    transform: rotateZ(-60px);
+}
+
+.flip-card-container:hover .flip-card {
+    transform: rotateX(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: bold;
+    backface-visibility: hidden;
+    font-family: var(--font-flipcard);
+}
+
+.flip-card-front {
+    background-color: var(--frontcard-color);
+    color: var(--backcard-color);
+    transform: translateZ(15px);
+}
+
+.flip-card-back {
+    background-color: var(--frontcard-color);
+    color: var(--backcard-color);
+    transform: rotateX(180deg) translateZ(15px);
+}
+
+#white1, #white2, #white3, #white4, #white5, #white6 {
+    background-color: var(--backcard-color);
+    color: var(--frontcard-color);
+}
+
+span i {
+    color: var(--theme-color13);
+    font-size: 18px;
+}
+
+
+/*------------------- NavBar --------------------*/
+
+.navbar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: transparent;
+    font-family: var(--font-custom2);
+    z-index: 9; 
+}
+
+.navbar .navbar-nav .nav-link {
+    font-size: 16px;
+    font-weight: 550;
+    color: var(--theme-color2) !important;
+    letter-spacing: .5px;
+    margin: 15px 5px;
+    /* animation when the screen size is changing */
+    -webkit-transition: all .75s;
+    transition: all .75s;
+}
+
+.navbar .navbar-nav .active {
+    color: var(--theme-color4) !important;
+}
+
+.scrolled-down{
+    transform:translateY(-100%); transition: all 0.5s ease-in-out;
+}
+  
+.scrolled-up{
+    transform:translateY(0); transition: all 0.5s ease-in-out;
+}
+
+.nav-item a:hover {
+    // color: palegoldenrod !important;
+    text-decoration: underline 2px var(--theme-color5) !important;
+    padding-top: 2px;
+    transition: 0.125s ease-in 0 ease-out!important;
+}
+
+.nav-item a:visited {
+    color: var(--theme-color4);
+}
+
+.logo {
+    padding: 18px 0;
+    width: 90px;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--theme-color2);
+}
+
+.logo:hover {
+    color: var(--theme-color4);
+}
+
+
+/*-------------------- About Me Section ---------------------- */
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.self {
+    background:url(https://www.transparenttextures.com/patterns/arches.png) repeat, var(--theme-color3); /* Old browsers */
+    background:url(https://www.transparenttextures.com/patterns/arches.png) repeat, -moz-linear-gradient(top,  var(--theme-color3) 0%, var(--theme-color13) 100%); /* FF3.6-15 */
+    background:url(https://www.transparenttextures.com/patterns/arches.png) repeat, -webkit-linear-gradient(top,  var(--theme-color3) 0%, var(--theme-color13) 100%); /* Chrome10-25,Safari5.1-6 */
+    background:url(https://www.transparenttextures.com/patterns/arches.png) repeat, linear-gradient(to bottom,  var(--theme-color3) 0%, var(--theme-color13) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+.self .self-img {
+    padding: 0 10px 0 0;
+    position: relative;
+    transition: all .4s;
+    -webkit-transition: all .4s;
+    z-index: 1;
+}
+
+.self .self-img:hover {
+    padding: 0 0 0 20px;
+}
+
+.self .self-img:hover:after {
+    background: var(--theme-color6);
+    left: 5px;
+    top: -15px;
+    right: 5px;
+    bottom: 5px;
+}
+
+.self .self-img:after {
+    content: '';
+    background: var(--theme-color13);
+    position: absolute;
+    left: 5px;
+    right: 5px;
+    top: 5px;
+    bottom: -15px;
+    z-index: -1;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+}
+
+.self h4 {
+    font-family: var(--font-custom2);
+}
+
+.self .content {
+    color: var(--theme-color2);
+    padding: 25px 35px;
+    border-radius: 7px;
+    box-shadow: 0px 2px 5px 2px;
+}
+
+.self .content p {
+    margin-bottom: 15px;
+}
+
+.self .content p span {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.self .content .social-icon span {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 12px;
+    border: 1px solid var(--theme-color2);
+    margin: 15px 5px 15px 0;
+    cursor: pointer;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+    justify-content: space-around;
+}
+
+.self .content .social-icon span:hover {
+    background: var(--theme-color4) !important;
+    border-color: var(--theme-color4);
+    color: var(--theme-color2);
+}
+
+.self .content {
+    margin-top: 30px;
+}
+
+.self .content .title {
+    margin-left: 16rem;
+}
+
+.self button {
+    // display: inline-block;
+    background: var(--theme-color7);
+    text-decoration: none !important;
+    border: 2px solid transparent;
+    border-collapse: separate;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 6px 3px !important;
+    border-radius: 20px 20px !important;
+    transition: .4s;
+    z-index: 2 !important;
+    position: absolute;
+    color: var(--theme-color4);
+}
+
+.self button:hover {
+    background: transparent;
+    border: 3px solid var(--border-color);
+    color: var(--theme-color2);
+    cursor: pointer;
+    z-index: 2;
+}
+
+
+/*------------------------- Experiences --------------------------*/
+
+.experience-page {
+    margin: 0 auto;
+    color: var(--theme-color2);
+    font-size: 1em;
+    font-family: var(--font-custom2);
+    padding: 35px 0 60px 0;
+    background:url(https://www.transparenttextures.com/patterns/arches.png) repeat, var(--theme-color13); /* Old browsers */
+    background:url(https://www.transparenttextures.com/patterns/arches.png) repeat, -moz-linear-gradient(top,  var(--theme-color10) 0%, var(--theme-color13) 100%); /* FF3.6-15 */
+    background:url(https://www.transparenttextures.com/patterns/arches.png) repeat, -webkit-linear-gradient(top,  var(--theme-color10) 0%, var(--theme-color13) 100%); /* Chrome10-25,Safari5.1-6 */
+    background:url(https://www.transparenttextures.com/patterns/arches.png) repeat, linear-gradient(to bottom,  var(--theme-color10) 0%, var(--theme-color13) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
+}
+
+.experience-page span {
+    font-size: 18px;
+}
+
+/* if IE<=7 */  
+.experience-page\ {
+    width: 1100px;
+    font-family: var(--font-custom1);
+}
+  
+.experience-secondaryHeading {
+    position: relative;
+    margin: 2em 0 0;
+    text-transform: uppercase;
+}
+
+/* Grid */  
+.experience-grid {
+    display: table;
+}
+  
+.experience-grid-column {
+    display: table-cell;
+}
+  
+.experience-timeline {
+    position: relative;
+    margin: 0 0 0 0.5em;
+    padding-left: 1.5em;
+    border-left: solid 1px var(--theme-color2);
+}
+  
+.experience-timeline:first-of-type {
+    margin-top: 1em;
+}
+  
+.experience-timeline:last-of-type {
+    border-left-color: transparent;
+}
+  
+.experience-timeline:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -0.5em;
+    display: block;
+    width: 1em;
+    height: 1em;
+    border: solid 1px var(--theme-color1);
+    background-color: var(--theme-color2);
+    border-radius: 50%;
+}
+  
+.experience-timeline-heading {
+    margin: 0;
+    padding-bottom: 0.5em;
+    line-height: 1em;
+    font-weight: normal;
+    -webkit-transform: translateY(-0.1em);
+    -ms-transform: translateY(-0.1em);
+    transform: translateY(-0.1em);
+}
+  
+.experience-timeline-heading-title {
+    line-height: 1;
+    color: var(--theme-color2);
+    font-style: italic;
+    text-transform: uppercase;
+    font-family: var(--font-family);
+}
+  
+.experience-timeline-heading-location {
+    font-size: 1em;
+}
+  
+.experience-timeline-heading-duration {
+    display: block;
+    font-size: 0.825em;
+    color: var(--theme-color4);
+}
+  
+.experience-timeline-details {
+    display: block;
+    margin: 0;
+    padding-bottom: 2em;
+    padding: 0 0 2em 1em;
+    font-family: var(--font-custom2);
+    font-size: 16px;
+}
+
+.experience-timeline-details li {
+    list-style-image: url(../img/return-down-forward-outline.svg) !important;
+}
+
+.experience-timeline-details li::marker {
+    font-size: 1.5rem;
+}
+  
+.experience-timeline-details-item {
+    margin-bottom: 0.5em;
+} 
+
+
+/*----------------------- Seção de projetos----------------------  */
+
+.projects {
+    background:url(https://www.transparenttextures.com/patterns/arches.png) repeat, var(--theme-color3); /* Old browsers */
+    background:url(https://www.transparenttextures.com/patterns/arches.png) repeat, -moz-linear-gradient(top,  var(--theme-color3) 0%, var(--theme-color13) 100%); /* FF3.6-15 */
+    background:url(https://www.transparenttextures.com/patterns/arches.png) repeat, -webkit-linear-gradient(top,  var(--theme-color3) 0%, var(--theme-color13) 100%); /* Chrome10-25,Safari5.1-6 */
+    background:url(https://www.transparenttextures.com/patterns/arches.png) repeat, linear-gradient(to bottom,  var(--theme-color3) 0%, var(--theme-color13) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    padding-top: 5.5em;
+    padding-bottom: 130px;
+    height: 100%;
+}
+  
+.project-pic {
+    width: 80%;
+    height: 65%;
+}
+  
+.projects-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.projects .title {
+    font-size: 60px;
+    margin-bottom: 2rem;
+}
+  
+.project-container {
+    text-align: center;
+    max-width: 22.875rem;
+    min-width: 20.5rem;
+    height: 90%;
+    max-height: 60rem;
+    padding: 3rem;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 3.5rem;
+}
+
+.project-container p {
+    padding: 0.4rem;
+}
+  
+.project-title {
+    padding-top: 2px;
+    color: var(--theme-color4);
+    font-weight: bold;
+    margin-bottom: 1rem;
+    margin-top: 0.75rem;
+}
+  
+.project-details {
+    margin-bottom: 0.5;
+}
+  
+.project-card {
+    background-color: var(--theme-color7);
+    border-radius: 11px;
+    box-shadow: 0 3px 10px var(--theme-color1);
+    padding: 20px;
+    margin: 10px;
+}
+
+.projects-container .project-container .hover-items {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    left: 0;
+    top: 0;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+    transform: scale(1);
+    transition: all 0.4s ease-in-out;
+}
+
+.projects-container .project-container .hover-items h3 {
+    font-size: 1.5rem;
+    color: var(--theme-color2);
+    margin-bottom: 1.5rem;
+}
+  
+.projects-container .project-container .hover-items .icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.projects-container .project-container .hover-items .icons .icon-project {
+    background-color: var(--theme-color10);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 1rem;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+}
+  
+.projects-container .project-container .hover-items .icons .icon-project i {
+    font-size: 1.5rem;
+    color: var(--theme-color2);
+    margin: 0 1rem;
+}
+
+.projects-container .project-container .hover-items a {
+    text-decoration: none;
+}
+  
+.projects-container .project-container .hover-items .icons .icon-project:hover {
+    background-color: var(--theme-color9);
+}
+  
+.projects-container .project-container .hover-items .icons .icon-project:hover i {
+    color: var(--theme-color4);
+}
+  
+.project-container:hover .hover-items {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.image {
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+  
+.middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+  
+.project-container:hover .image {
+    opacity: 0.3;
+}
+  
+.project-container:hover .middle {
+    opacity: 1;
+}
+  
+.text {
+    background-color: var(--theme-color8);
+    color: var(--theme-color2);
+    font-size: 16px;
+    padding: 16px 32px;
+}
+
+
+/*----------------------- Skills section -----------------------*/
+
+.skills {
+    margin: auto;
+    text-align: center;
+    justify-content: center;
+    z-index: 3 !important;
+    background:url(https://www.transparenttextures.com/patterns/arches.png) repeat, var(--theme-color13); /* Old browsers */
+    background:url(https://www.transparenttextures.com/patterns/arches.png) repeat, -moz-linear-gradient(top,  var(--theme-color10) 0%, var(--theme-color13) 100%); /* FF3.6-15 */
+    background:url(https://www.transparenttextures.com/patterns/arches.png) repeat, -webkit-linear-gradient(top,  var(--theme-color10) 0%, var(--theme-color13) 100%); /* Chrome10-25,Safari5.1-6 */
+    background:url(https://www.transparenttextures.com/patterns/arches.png) repeat, linear-gradient(to bottom,  var(--theme-color10) 0%, var(--theme-color13) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    padding-top: 3.75rem;
+    padding-bottom: 5rem;
+}
+
+.skills .title {
+    font-size: 60px;
+}
+
+.skills-wrapper {     
+    border: var(--b) solid transparent; /* space for the border */
+    background:
+    conic-gradient(from 90deg  at top    var(--b) left  var(--b),var(--g)) 0    0,
+    conic-gradient(from 180deg at top    var(--b) right var(--b),var(--g)) 100% 0,
+    conic-gradient(from 0deg   at bottom var(--b) left  var(--b),var(--g)) 0    100%,
+    conic-gradient(from -90deg at bottom var(--b) right var(--b),var(--g)) 100% 100%;
+    background-size: var(--w) var(--w);
+    background-origin: border-box;
+    background-repeat: no-repeat;
+    padding-bottom: 35px;
+}
+    
+.skill-header {
+    padding: 30px 0 15px !important;
+    font-weight: bold;
+    position: relative;
+    margin-bottom: 1rem !important;
+    margin-right: 42rem;
+    font-family: var(--font-custom2);
+}
+
+.skill-header::after {
+    content: "";
+    display: block;
+    width: 50%;
+    padding-top: 3px;
+    border-bottom: 3.5px solid var(--theme-color6);
+    position: absolute;
+    left: 26%;
+}
+
+.skills-wrapper img {
+    padding: 1.7rem;
+}
+
+.icon-skills {
+    width: 9.75rem;
+    height: 9.75rem;
+}
+
+.icon-card {
+    background-color: var(--theme-color13);
+    border-radius: 11px;
+    box-shadow: 0 3px 10px var(--theme-color6);
+    padding: 30px;
+    margin: 15px;
+}
+
+#tech {
+    margin-right: 0;
+    margin-left: 40.25rem;
+}
+
+/* ------------------- Contact ------------------ */
+
+.contact {
+    background:url(https://www.transparenttextures.com/patterns/arches.png) repeat, var(--theme-color3); /* Old browsers */
+    background:url(https://www.transparenttextures.com/patterns/arches.png) repeat, -moz-linear-gradient(to top,  var(--theme-color3) 0%, var(--theme-color13) 100%); /* FF3.6-15 */
+    background:url(https://www.transparenttextures.com/patterns/arches.png) repeat, -webkit-linear-gradient(to top,  var(--theme-color3) 0%, var(--theme-color13) 100%); /* Chrome10-25,Safari5.1-6 */
+    background:url(https://www.transparenttextures.com/patterns/arches.png) repeat, linear-gradient(to bottom,  var(--theme-color3) 0%, var(--theme-color13) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    padding-top: 4em;
+    padding-bottom: 2.5em;
+}
+
+.contact .title {
+    font-size: 60px;
+}
+
+.contact p {
+    font-size: 18px;
+    font-family: var(--font-custom2);
+}
+
+input:focus ~ label, textarea:focus ~ label, input:valid ~ label, textarea:valid ~ label {
+    font-size: 0.75em;
+    color: var(--theme-color6);
+    top: -5px;
+    -webkit-transition: all 0.225s ease;
+    transition: all 0.225s ease;
+}
+
+.styled-input {
+    float: left;
+    width: 293px;
+    margin: 1rem 0;
+    position: relative;
+    border-radius: 4px;
+}
+
+
+.styled-input label {
+    color: var(--theme-color6);
+    padding: 1.3rem 30px 1rem 30px;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+    pointer-events: none;
+}
+
+.styled-input.wide { 
+    width: 650px;
+    max-width: 100%;
+}
+
+input,
+textarea {
+    padding: 30px;
+    border: 0;
+    width: 100%;
+    font-size: 1rem;
+    background-color: var(--theme-color12);
+    color: var(--theme-color2);
+    border-radius: 4px;
+}
+
+input:focus,
+textarea:focus { outline: 0; }
+
+input:focus ~ span,
+textarea:focus ~ span {
+    width: 100%;
+    -webkit-transition: all 0.075s ease;
+    transition: all 0.075s ease;
+}
+
+textarea {
+    width: 100%;
+    min-height: 15em;
+}
+
+.input-container {
+    width: 650px;
+    max-width: 100%;
+    margin: 20px auto 25px auto;
+}
+
+.submit-btn {
+    padding: 7px 35px;
+    border-radius: 60px;
+    display: inline-block;
+    background-color: var(--theme-color10);
+    color: var(--theme-color4);
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.06),
+    0 2px 10px 0 rgba(0,0,0,0.07);
+    -webkit-transition: all 300ms ease;
+    transition: all 300ms ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(1px);
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.10),
+    0 1px 1px 0 rgba(0,0,0,0.09);
+    border: 3px solid var(--backcard-color);
+    color: var(--theme-color2);
+}
+
+input[type=checkbox] + label {
+    color: var(--theme-color2);
+    font-style: italic;
+} 
+
+input[type=checkbox]:checked + label {
+  color: var(--frontcard-color);
+  font-style: normal;
+}
+
+
+/*------------------- Footer ------------------*/
+
+.footer {
+    padding: 80px 10px 5px 0px; 
+    text-align: center;
+    justify-content: center;
+    justify-self: center;
+    left: 0;
+    width: 100%;
+}
+
+.footer p {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.footer a {
+    text-decoration: none !important;
+    color: var(--theme-color2);
+}
+
+.footer a:hover {
+    color: var(--theme-color6);
+}
+
+/*---------------- Theme/Color palette of the website ----------------*/
+
+.custom-theme {
+    background-color: var(--theme-color3);
+    color: var(--theme-color2);
+}
+
+.custom-theme .title:before {
+    background: var(--theme-color7);
+}
+
+.custom-theme footer {
+    background: var(--theme-color7);
+    color: var(--theme-color2);
+}
+
+.title {
+    display: inline-block;
+    font-size: 36px;
+    padding-bottom: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+.title:after {
+    content: '';
+    width: 60px;
+    height: 1px;
+    background: var(--theme-color4);
+    position: absolute;
+    bottom: 0;
+    left: calc(50% - 30px);
+}
+
+.title:before {
+    content: '';
+    width: 100%;
+    height: 1px;
+    background: rgba(1, 1, 1, 0.05);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.title-left {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.title-left:after {
+    left: 0;
+}
+
+
+/*-------------- Animation ---------------*/
+
+#shuffle {
+    display: inline-block;
+    font-family: var(--font-custom2);
+}
+
+
+
+/*--------------------- Responsive ------------------------*/
+@media all and (max-width:1180px) {
+    .styled-input {
+        width: 100%;
+    }
+} 
+
+@media all and (max-width: 990px) {
+    .icon-skills {
+        width: 5.75rem !important;
+        height: 5.75rem !important;
+    }
+    
+    .skill-header {
+        margin-right: 0;
+    }
+    
+    .self .content .title {
+        margin-left: 0;
+    }
+    
+    #tech {
+        margin-left: 0;
+    }
+
+    .projects .title {
+        margin-bottom: 1.1rem;
+    }
+
+    .projects-container {
+        flex-direction: column;
+      }
+    
+    .project-container {
+        width: 20.875rem;
+    }
+
+    .styled-input {
+        width:100%;
+    }
+
+    .submit-btn {
+        width:100%;
+        float: none;
+        text-align:center;
+    }
+}
+
+@media all and (max-width: 768px) {
+    .experience-page {
+        padding: 2em 1em;
+    }
+
+    .icon-skills {
+        width: 4.85rem !important;
+        height: 4.85rem !important;
+    }
+
+    .skill-header {
+        margin-right: 0;
+    }
+
+    .self .content .title {
+        margin-left: 0;
+        margin-bottom: 1rem;
+    }
+
+    #tech {
+        margin-left: 0;
+    }
+
+    .projects-container {
+        flex-direction: column;
+      }
+    
+    .project-container {
+        width: 20.875rem;
+    }
+
+    .projects .title {
+        margin-bottom: 1rem;
+    }
+
+    .projects-container {
+        flex-direction: column;
+    }
+
+    .styled-input {
+        width:100%;
+    }
+
+    .submit-btn {
+        width:100%;
+        float: none;
+        text-align:center;
+    }
+}
+
+@media all and (max-width: 425px) {
+    .icon-skills {
+        width: 3.725rem !important;
+        height: 3.725rem !important;
+    }
+
+    .skill-header {
+        margin-right: 0;
+    }
+
+    .self .content .title {
+        margin-left: 0;
+    }
+
+    #tech {
+        margin-left: 0;
+    }
+
+    .projects .title {
+        margin-bottom: 1rem;
+    }
+
+    .project-container {
+        width: 17.875rem;
+    }
+}
